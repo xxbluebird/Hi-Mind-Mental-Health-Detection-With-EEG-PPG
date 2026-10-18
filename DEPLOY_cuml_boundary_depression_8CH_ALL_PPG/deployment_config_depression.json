@@ -1,0 +1,49 @@
+{
+  "label": "depression",
+  "scenario": "8CH_ALL_PPG",
+  "artifact_file": "cuml_svm_depression_rbf_cpu_boundary.pkl",
+  "feature_order": [
+    "AbsPow_Beta_Fp1",
+    "CCM_HeartToBrain_Beta_P4",
+    "DIFF_CONN_MI_Beta_Fp1_minus_Fp2__Fp1_minus_F3",
+    "ORI_CONN_PCC_Beta_F3-F4",
+    "LZC_Alpha_T3"
+  ],
+  "segment_threshold": 0.475,
+  "decision_threshold_from_prob": -0.9982689535123309,
+  "kernel": "rbf",
+  "C": 0.06,
+  "gamma": 0.0005,
+  "scaler": "robust",
+  "fs_hz": 250,
+  "segment_duration_sec": 120,
+  "channels": [
+    "Fp1",
+    "Fp2",
+    "F3",
+    "F4",
+    "T3",
+    "T4",
+    "P3",
+    "P4"
+  ],
+  "class_0": "Normal",
+  "class_1": "Tidak normal",
+  "validation_all_training_segments": {
+    "name": "all_training_segments",
+    "n_samples": 79,
+    "prob_available": true,
+    "match_manual_default_vs_cuml_default": 0.5569620253164557,
+    "match_manual_threshold_vs_cuml_threshold": 1.0,
+    "max_abs_diff_prob_manual_vs_cuml": 9.680245963594736e-06,
+    "mean_abs_diff_prob_manual_vs_cuml": 2.983215562011809e-06,
+    "manual_acc_threshold": 0.759493670886076,
+    "manual_ba_threshold": 0.7577220077220077,
+    "manual_f1_macro_threshold": 0.7580983078162772,
+    "manual_f1_binary_threshold": 0.7397260273972602,
+    "cuml_acc_threshold": 0.759493670886076,
+    "cuml_ba_threshold": 0.7577220077220077,
+    "cuml_f1_macro_threshold": 0.7580983078162772,
+    "cuml_f1_binary_threshold": 0.7397260273972602
+  }
+}

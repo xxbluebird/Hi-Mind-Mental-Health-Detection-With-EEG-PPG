@@ -1,0 +1,40 @@
+{
+  "label": "stress",
+  "scenario": "8CH_ALL_PPG",
+  "artifact_file": "cuml_svm_stress_rbf_cpu_boundary_UPDATED_THRESHOLD.pkl",
+  "deployment_threshold_mode": "decision_score",
+  "deployment_threshold_direction": ">=",
+  "deployment_decision_threshold": -0.0576823253109804,
+  "rule": "Prediksi Tidak normal jika decision_score >= -5.768232531098e-02",
+  "decision_sweep_best": {
+    "score_name": "decision_manual",
+    "direction": ">=",
+    "threshold": -0.0576823253109804,
+    "acc": 0.8607594936708861,
+    "ba": 0.8547430830039526,
+    "f1_macro": 0.8562448304383788,
+    "f1_binary": 0.8307692307692308,
+    "tn": 41,
+    "fp": 5,
+    "fn": 6,
+    "tp": 27,
+    "n_pred_0": 47,
+    "n_pred_1": 32
+  },
+  "probability_sweep_best": {
+    "score_name": "prob_manual",
+    "direction": ">=",
+    "threshold": 0.5205492248119422,
+    "acc": 0.8607594936708861,
+    "ba": 0.8547430830039526,
+    "f1_macro": 0.8562448304383788,
+    "f1_binary": 0.8307692307692308,
+    "tn": 41,
+    "fp": 5,
+    "fn": 6,
+    "tp": 27,
+    "n_pred_0": 47,
+    "n_pred_1": 32
+  },
+  "note": "Threshold ini dikalibrasi untuk model final cuML boundary stress. Untuk Raspberry Pi gunakan decision_score dan arah threshold yang tersimpan."
+}

@@ -1,0 +1,44 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# --- Virtual environment ---
+venv/
+.venv/
+env/
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- DATA PASIEN / HASIL REKAMAN (JANGAN PERNAH DI-UPLOAD) ---
+feature.csv
+signal.csv
+processing_signal/
+DEPLOY_OUTPUT_GUI/
+DEPLOY_OUTPUT*/
+*_deploy_import_cache/
+data/
+recordings/
+*.edf
+*.bdf
+*.xdf
+*.fif
+
+# --- Laporan hasil ekspor ---
+*.pdf
+!docs/*.pdf
+
+# --- Log & temp ---
+*.log
+*.tmp
+.ipynb_checkpoints/
+
+# --- CATATAN ---
+# File model (*.pt, *.pkl, *.json di folder DEPLOY_*) SENGAJA TIDAK di-ignore
+# karena dibutuhkan aplikasi. Jika ada yang > 100 MB, pakai Git LFS.

@@ -1,0 +1,6 @@
+rank,feature
+1,AbsPow_Beta_Fp1
+2,CCM_HeartToBrain_Beta_P4
+3,DIFF_CONN_MI_Beta_Fp1_minus_Fp2__Fp1_minus_F3
+4,ORI_CONN_PCC_Beta_F3-F4
+5,LZC_Alpha_T3

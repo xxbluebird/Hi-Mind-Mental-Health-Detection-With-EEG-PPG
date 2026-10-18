@@ -1,0 +1,49 @@
+{
+  "label": "anxiety",
+  "scenario": "8CH_ALL_PPG",
+  "artifact_file": "cuml_svm_anxiety_rbf_cpu_boundary.pkl",
+  "feature_order": [
+    "AbsPow_Beta_Fp1",
+    "ORI_CONN_MI_Theta_Fp1-F3",
+    "LZC_T3",
+    "ORI_CONN_PLI_Delta_Fp1-Fp2",
+    "AbsPow_Beta_T4"
+  ],
+  "segment_threshold": 0.45,
+  "decision_threshold_from_prob": -1.3422568794964245,
+  "kernel": "rbf",
+  "C": 0.1,
+  "gamma": 0.05,
+  "scaler": "minmax",
+  "fs_hz": 250,
+  "segment_duration_sec": 120,
+  "channels": [
+    "Fp1",
+    "Fp2",
+    "F3",
+    "F4",
+    "T3",
+    "T4",
+    "P3",
+    "P4"
+  ],
+  "class_0": "Normal",
+  "class_1": "Tidak normal",
+  "validation_all_training_segments": {
+    "name": "all_training_segments",
+    "n_samples": 79,
+    "prob_available": true,
+    "match_manual_default_vs_cuml_default": 1.0,
+    "match_manual_threshold_vs_cuml_threshold": 1.0,
+    "max_abs_diff_prob_manual_vs_cuml": 7.0280570807490506e-09,
+    "mean_abs_diff_prob_manual_vs_cuml": 2.1115585735616653e-09,
+    "manual_acc_threshold": 0.6708860759493671,
+    "manual_ba_threshold": 0.5,
+    "manual_f1_macro_threshold": 0.4015151515151515,
+    "manual_f1_binary_threshold": 0.803030303030303,
+    "cuml_acc_threshold": 0.6708860759493671,
+    "cuml_ba_threshold": 0.5,
+    "cuml_f1_macro_threshold": 0.4015151515151515,
+    "cuml_f1_binary_threshold": 0.803030303030303
+  }
+}

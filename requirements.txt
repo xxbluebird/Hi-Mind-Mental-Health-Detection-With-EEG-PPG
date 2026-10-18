@@ -1,0 +1,30 @@
+# Hi-Mind - dependensi runtime
+# Python 3.10 - 3.12 disarankan
+#
+# PyTorch versi CPU-only (lebih ringan, tanpa CUDA).
+# Baris di bawah memberi tahu pip untuk mengambil wheel CPU dari PyTorch.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# --- Komputasi inti ---
+numpy>=1.26
+scipy>=1.11
+pandas>=2.0
+scikit-learn>=1.3      # FastICA, StandardScaler, mutual_info_score
+torch>=2.2             # EEG Super-Resolution P16 (CPU)
+tqdm>=4.65             # di-import oleh eeg_sr_hybrid_fusion.py
+
+# --- Pemrosesan sinyal EEG/PPG ---
+mne>=1.6               # ICA, topomap, layout elektroda
+antropy>=0.1.6         # Multiscale entropy
+nolds>=0.5.2           # DFA (PPG)
+
+# --- Akuisisi & visualisasi ---
+brainflow>=5.10        # tetap di-import saat startup, walau tanpa board Cyton
+matplotlib>=3.8
+
+# --- Laporan PDF ---
+reportlab>=4.0
+pillow>=10.0
+
+# Catatan: tkinter bawaan Python (bukan paket pip).
+# Linux: sudo apt install python3-tk

@@ -1,0 +1,84 @@
+{
+  "deploy_name": "DEPLOY_EEG_SR_P16_C10B",
+  "model_version": "C10B",
+  "model_file": "models/p16_sr_model_deploy.pt",
+
+  "sampling_rate_hz": 250,
+  "segment_samples": 30000,
+  "segment_duration_sec": 120,
+
+  "input_channels": ["Fp1", "Fp2", "T3", "T4"],
+  "target_channels": ["F3", "F4", "P3", "P4"],
+
+  "physical_channels": ["Fp1", "Fp2", "T3", "T4"],
+  "virtual_channels": ["F3", "F4", "P3", "P4"],
+  "output_8ch_order": ["Fp1", "Fp2", "F3", "F4", "T3", "T4", "P3", "P4"],
+
+  "architecture": {
+    "model_type": "hybrid_cnn_maser_fusion",
+    "hybrid_mode": "learned_alpha",
+    "freeze_backbones": true,
+    "input_channels_count": 4,
+    "target_channels_count": 4,
+
+    "wrappers": {
+      "C4_band_mix": true,
+      "C5_temporal_residual": true,
+      "C7B_output_scale": true,
+      "C8_hf_residual": true,
+      "C14_multiband_postgain": true,
+      "C13_delta_postgain": false
+    },
+
+    "C5": {
+      "hidden": 32,
+      "kernel": 15,
+      "dropout": 0.05,
+      "scale_init": 0.10,
+      "scale_max": 0.35
+    },
+
+    "C8": {
+      "hidden": 64,
+      "kernel": 11,
+      "dropout": 0.0,
+      "scale_init": 0.05,
+      "scale_max": 0.40,
+      "hf_low_hz": 13,
+      "hf_high_hz": 40
+    },
+
+    "C14": {
+      "delta_gain": 1.80,
+      "theta_gain": 1.00,
+      "alpha_gain": 1.04,
+      "beta_gain": 1.12
+    }
+  },
+
+  "training_source": {
+    "source_model_dir": "/drive0-storage/Anna/EEG_SR_FINAL_ONE_MODEL_WITH_CSV_ON_CLEAN/hybrid_learned_alpha_beta_shape002_rel001_seed42",
+    "note": "C10B model selected for deployment. Evaluation cleanroot showed strongest aggregate metrics compared with later C18/MATCH6 variants."
+  },
+
+  "expected_input_csv_columns": [
+    "time_s",
+    "Fp1",
+    "Fp2",
+    "T3",
+    "T4"
+  ],
+
+  "full_csv_columns_supported": [
+    "time_s",
+    "Fp1",
+    "Fp2",
+    "F3",
+    "F4",
+    "T3",
+    "T4",
+    "P3",
+    "P4",
+    "PPG"
+  ]
+}
