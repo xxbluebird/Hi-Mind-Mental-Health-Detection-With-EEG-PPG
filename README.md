@@ -26,7 +26,7 @@ Hi-Mind adalah aplikasi desktop (GUI Tkinter) yang merekam atau memuat sinyal **
 
 ## Fitur
 
-- Akuisisi real-time dari board **OpenBCI Cyton** (via BrainFlow) **atau** analisis dari file `.csv` / `.txt` tanpa perangkat keras.
+- Akuisisi real-time dari board **OpenBCI Cyton** (via BrainFlow) **atau** analisis dari file `.csv` / `.txt` tanpa perangkat keras. data EEG diambil dari elektroda kering Ultracortex Mark IV OpenBCI dan Earclip PPG diambi dari Grove Heart Rate Sensor
 - Preprocessing EEG: bandpass, ICA/MAICA.
 - **EEG Super-Resolution P16**: 4 kanal fisik (Fp1, Fp2, T7/T3, T8/T4) menjadi 8 kanal (+ F3, F4, P3, P4).
 - Ekstraksi fitur EEG (band power, rasio, asimetri, LZC, SASI, konektivitas MI, dll.) dan fitur PPG (termasuk DFA α2).
