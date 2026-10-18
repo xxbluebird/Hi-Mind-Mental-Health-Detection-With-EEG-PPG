@@ -30,7 +30,7 @@ Hi-Mind adalah aplikasi desktop (GUI Tkinter) yang merekam atau memuat sinyal **
 - Preprocessing EEG: bandpass, ICA/MAICA.
 - **EEG Super-Resolution P16**: 4 kanal fisik (Fp1, Fp2, T7/T3, T8/T4) menjadi 8 kanal (+ F3, F4, P3, P4).
 - Ekstraksi fitur EEG (band power, rasio, asimetri, LZC, SASI, konektivitas MI, dll.) dan fitur PPG (termasuk DFA α2).
-- Klasifikasi **stress / anxiety / depression** dengan SVM RBF (inferensi NumPy manual).
+- Klasifikasi **stress / anxiety / depression** dengan SVM RBF (inferensi NumPy manual). Labelling dataset training menggunakan DASS-42.
 - Visualisasi **topographic brain mapping**: absolute power, relative power, ratio, asymmetry, LZC, SASI.
 - Ekspor laporan PDF.
 
@@ -49,7 +49,7 @@ Segmen analisis: 120 detik pada 250 Hz.
 ## Struktur Repositori
 
 ```
-Hi-Mind/
+Hi-Mind-Mental-Health-Detection-With-EEG-PPG/
 ├── interface_fix.py                  # Aplikasi utama (GUI + pipeline deployment)
 ├── eeg_processor_8.py                # Preprocessing EEG (MAICA, SNR)
 ├── olah_data_lengkap.py              # Fungsi ekstraksi fitur EEG & PPG
@@ -77,8 +77,8 @@ Hi-Mind/
 Prasyarat: **Python 3.10 – 3.12**. Tidak perlu GPU maupun board Cyton.
 
 ```bash
-git clone https://github.com/<username>/Hi-Mind.git
-cd Hi-Mind
+git clone https://github.com/xxbluebird/Hi-Mind-Mental-Health-Detection-With-EEG-PPG.git
+cd Hi-Mind-Mental-Health-Detection-With-EEG-PPG
 
 python -m venv venv
 # Windows
@@ -98,7 +98,7 @@ python interface_fix.py
 ```
 
 ### Tanpa board Cyton (mode file)
-Gunakan menu offline data di GUI untuk memuat rekaman `.csv` / `.txt` (EEG 4 kanal: Fp1, Fp2, T3/T7, T4/T8, plus kanal PPG), lalu jalankan preprocessing dan analisis seperti biasa. Radiobutton Zap (Zapline) dan ICA berarti 'skip' jika radiobutton=true. Pada file contoh, file txt adalah raw data, dan file csv adalah file yang melalui pre-processing band pass 1-40 hz, sehingga skip Zapline dapat diaplikasikan.
+Gunakan menu offline data di GUI untuk memuat rekaman `.csv` / `.txt` (EEG 4 kanal: Fp1, Fp2, T3/T7, T4/T8, plus kanal PPG), lalu jalankan preprocessing dan analisis dengan menekan tombol 'RUN'. Radiobutton Zap (Zapline) dan ICA berarti 'skip' jika radiobutton=true. Setelah menekan tombol, sinyal EEG 4 kanal yang telah dibersihkan akan muncul, silahkan masuk ke tab 'Deep Learning' untuk menekan 'RUN SR+ML' untuk menjalankan EEG SR dan klasifikasi penyakit pental. Report PDF dapat disimpan pada tab 'Report' dengan menekan tombol 'Save Report as PDF'. Tersedia pula berbagai fitur untuk pengecekan impedansi, menyimpan sinyal dan fitur dalam CSV untuk kasus akuisisi sinyal secara langsung melalui Cyton Board. Pada file contoh, file txt adalah raw data, dan file csv adalah file yang telah melalui pre-processing band pass 1-40 hz.
 
 ### Dengan board Cyton OpenBCI
 Hubungkan dongle, isi nomor port pada kolom **COM** di GUI (mis. `COM3`), lalu mulai rekaman.
@@ -132,7 +132,7 @@ Repositori ini menyertakan contoh data rekaman pasien berupa txt dan csv. Identi
 
 ```
 Ramadhani, A. L. (2026). Hi-Mind: Sistem Deteksi Gangguan Kesehatan Mental Berbasis
-EEG dan PPG dengan Visualisasi Topographic Brain Mapping. GitHub repository.
+EEG dan PPG dengan Visualisasi Topographic Brain Mapping. GitHub repository. https://github.com/xxbluebird/Hi-Mind-Mental-Health-Detection-With-EEG-PPG
 ```
 Model EEG Super-Resolution dipra-latih dengan Preprocessed SEED Dataset:
 1. Wei-Long Zheng, and Bao-Liang Lu, Investigating Critical Frequency Bands and Channels for EEG-based Emotion Recognition with Deep Neural Networks, accepted by IEEE Transactions on Autonomous Mental Development (IEEE TAMD) 7(3): 162-175, 2015. 
